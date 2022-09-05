@@ -14,7 +14,7 @@ const BlogCard = ({ val }) => {
         setWrite({open:true,data:val})
     }
     const redirect = () => {
-        navigate(`/post/:${val.id}`)
+        navigate(`/post/${val.id}`)
     }
 
     return (

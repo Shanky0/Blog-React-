@@ -7,6 +7,7 @@
 
 /* NavBar Styles Starts*/
 #navContainer {
+    padding: 0 1.5rem;
     width: 100%;
     display: flex;
     justify-content: space-between;
@@ -83,7 +84,7 @@
     cursor: pointer;
 }
 
-#navListMob{
+#navListMob {
     display: none;
 }
 
@@ -96,6 +97,7 @@
     .fa-bars {
         display: block;
     }
+
     #navListMob {
         display: flex;
         flex-direction: column-reverse;
@@ -106,7 +108,7 @@
         justify-content: space-evenly;
         border-radius: 5px;
     }
-    
+
     #navListMob #navProfile {
         display: flex;
         flex-direction: column;
@@ -291,3 +293,82 @@
 }
 
 /* Write Drawer Ends */
+
+/* Post page starts */
+
+#postContainer {
+    max-width: 1500px;
+    width: 100%;
+    padding: 2rem 10%;
+    margin: auto;
+    min-height: 90vh;
+    background-color: rgb(247, 239, 205);
+    border: 1px solid;
+}
+
+#postContainer>button {
+    font-size: 1.2rem;
+    padding: .3rem 1rem;
+    background-color: rgb(112, 112, 112);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+#detailsContainer {
+    padding: 2rem 0;
+    width: 100%;
+}
+
+#detailsContainer>img {
+    width: 100%;
+    height: 40vh;
+}
+
+#detailsContainer>h1 {
+    font-size: 2.2rem;
+    font-weight: 500;
+    text-align: center;
+}
+
+#detailsContainer>h6 {
+    font-size: 1.5rem;
+    text-align: end;
+    font-weight: 300;
+}
+
+#detailsContainer>p {
+    padding: .5rem 0;
+    font-size: 1rem;
+    font-weight: 300;
+    text-align: justify;
+}
+#detailsContainer>p>pre{
+    white-space: pre-wrap;
+}
+
+@media screen and (max-width:600px) {
+    #postContainer {
+        padding: 2rem 2%;
+    }
+
+    #detailsContainer>h1 {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    #detailsContainer>h6 {
+        font-size: 1.1rem;
+        text-align: end;
+
+    }
+
+    #detailsContainer>p {
+        padding: .5rem 0;
+        font-size: 1rem;
+        text-align: justify;
+    }
+}
+
+/* Post page Ends */
