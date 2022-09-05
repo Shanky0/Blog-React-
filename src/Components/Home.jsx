@@ -1,21 +1,17 @@
 import React from 'react';
+import { BlogDetail } from '../App';
+import BlogCard from './BlogCard';
 
 
 
 const Home = () => {
+  const {blogs} = BlogDetail();
   return (
     <>
       <div id='homeContainer'>
-        <div id='heroArea'>
-          <div id='blankArea'>
-            <h1> Welcome to Blogs</h1>
-          </div>
-          <div id='imageHeroArea'>
-            <img src='https://thumbs.dreamstime.com/b/autumn-landscape-nature-background-dried-flowers-water-drops-rain-field-banner-selective-focus-75038244.jpg' alt='heroImage'/>
-          </div>
-        </div>
-        <div id='blogsArea'>
-
+        <h1>Welcome to Blogs  </h1>
+        <div id='blogsList'>
+          {blogs.map((val) => { return (<BlogCard val={val} key={val.id} />) })}
         </div>
       </div>
     </>

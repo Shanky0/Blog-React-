@@ -8,7 +8,7 @@ const Login = () => {
         <form id='registerForm'>
           <div>
             <h1>Email-Id</h1>
-            <input type='email' placeholder='email' require />
+            <input type='email' placeholder='email' require  autoFocus/>
             <h1>User Name </h1>
             <input type='text' placeholder='username' require />
             <h1> Password </h1>

@@ -1,18 +1,19 @@
 #container {
     width: 100%;
+    max-width: 1500px;
     margin: auto;
-    height: 100vh;
-    border: 1px solid;
 }
 
 
 /* NavBar Styles Starts*/
 #navContainer {
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 10vh;
     max-height: 10vh;
+    background-color: rgb(223, 223, 223);
     box-shadow: rgba(0, 0, 0, 0.35) 0px -10px 36px -28px inset;
 }
 
@@ -30,21 +31,21 @@
 
 #navList {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     font-size: 3.5vh;
     font-weight: 200;
-    color: #256D85;
     margin-right: 30vh
 }
 
-#navItems {
+.navItems {
     cursor: pointer;
     margin-right: 5vh;
+    color: #256D85;
 }
 
-#navItems:hover {
+.navItems:hover {
     color: cornflowerblue;
     font-weight: 500;
 }
@@ -71,9 +72,47 @@
 
 #navProfile span {
     font-size: 3vh;
+    font-weight: 400;
     padding-left: 2vh;
 }
 
+.fa-bars {
+    display: none;
+    font-size: 2rem;
+    margin-right: 3rem;
+    cursor: pointer;
+}
+
+#navListMob{
+    display: none;
+}
+
+
+@media screen and (max-width:750px) {
+    nav {
+        display: none;
+    }
+
+    .fa-bars {
+        display: block;
+    }
+    #navListMob {
+        display: flex;
+        flex-direction: column-reverse;
+        height: 13rem;
+        width: 10rem;
+        align-items: center;
+        background-color: rgb(190, 190, 190);
+        justify-content: space-evenly;
+        border-radius: 5px;
+    }
+    
+    #navListMob #navProfile {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
 
 
@@ -90,38 +129,77 @@
 }
 
 #registerForm {
-    position: absolute;
-    top: 15%;
-    left: 30%;
-    right: 30%;
-    bottom: 15%;
+    width: 50%;
+    margin: auto;
     border: 1px solid black;
-    border-radius: 2vw;
+    border-radius: 2vh;
+    height: 70vh;
     box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 
 #registerForm div {
     width: 60%;
-    margin: 5vh auto;
+    height: 100%;
+    margin: 2vh auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 2rem 0;
 }
 
 #registerForm h1 {
-    font-size: 1.8vw;
-    font-weight: 100;
-    margin: .5vw 0;
+    font-size: 20px;
+    font-weight: 400;
+    margin: .2rem 0;
 }
 
+
 #registerForm input {
-    font-size: 1.4vw;
+    font-size: 18px;
     font-weight: 300;
-    padding: .2vw .5vw;
+    padding: .5rem;
+    border-radius: 1vh;
+    border: none;
+    outline-color: black;
 }
 
 #registerForm button {
-    font-size: 1.5vw;
-    padding: .2vw 1vw;
-    margin: 1vw 0;
+    font-size: 20px;
+    padding: .3rem 1rem;
+    margin: 1rem 0;
     cursor: pointer;
+    border-radius: 1vh;
+    border: none;
+    background-color: wheat;
+    color: var(--black);
+}
+
+#registerForm button:hover {
+    background-color: rgb(218, 176, 87);
+}
+
+@media screen and (max-width:900px) {
+    #registerForm {
+        width: 60%;
+    }
+
+}
+
+@media screen and (max-width:600px) {
+    #registerForm {
+        width: 90%;
+    }
+
+    #registerForm div {
+        width: 90%;
+        height: 100%;
+        margin: 2vh auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 2rem 0;
+    }
+
 }
 
 /* Register and Login Page Ends */
@@ -129,40 +207,87 @@
 /* Home Page starts */
 
 #homeContainer {
-    width: 100%;
+    padding: 3rem 0;
 }
 
-#heroArea {
-    width: 100%;
-    height: 55vh;
+#homeContainer h1 {
+    text-align: center;
+    font-size: 2.5rem;
+    font-weight: 400;
 }
 
-#heroArea #blankArea {
-    width: 100%;
-    height: 17vh;
+#blogsList {
+    padding: 2rem 10%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 3rem;
+}
+
+@media screen and (max-width:650px) {
+    #blogsList {
+        grid-template-columns: repeat(1, 1fr);
+    }
+}
+
+/* Home Page Ends */
+
+
+/* Write Drawer Starts */
+
+#writeContainer {
+    width: 80%;
+    margin: auto;
+    height: 100%;
+    padding: 1% 10%;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
     position: relative;
 }
 
-#heroArea #blankArea h1 {
+#writeContainer h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+#writeContainer input {
+    font-size: 1.2rem;
+    padding: .5rem;
+    border-radius: 5px;
+}
+
+#writeContainer textarea {
+    font-size: 1.2rem;
+    padding: .5rem;
+    border-radius: 5px;
+    height: 10rem;
+}
+
+#writeContainer textarea::-webkit-scrollbar {
+    display: none;
+}
+
+#writeContainer button {
+    width: 30%;
+    font-size: 1.5rem;
+    border: none;
+    padding: .5rem 0;
+    background-color: rgb(224, 168, 62);
+    border-radius: 2rem;
+    cursor: pointer;
+}
+
+#writeContainer button:hover {
+    background-color: green;
+    color: white;
+}
+
+.fa-xmark {
     position: absolute;
-    bottom: 1%;
-    left: 35%;
-    right: 30%;
-    font-size: 4vw;
-    font-weight: 300;
+    top: 5%;
+    right: 5%;
+    font-size: 3rem;
+    cursor: pointer;
 }
 
-#heroArea #imageHeroArea {
-    width: 100%;
-    height: 70vh;
-    margin-top: -4vh;
-}
-
-#heroArea #imageHeroArea img {
-    width: 100%;
-    height: 100%;
-    border-radius: .5vw;
-}
-
-
-/* Home Page Ends */
+/* Write Drawer Ends */

@@ -8,33 +8,48 @@ import Write from './Components/Write';
 import Post from './Components/Post';
 import Error from './Components/Error';
 import Navbar from './Components/Navbar';
-import { useState } from 'react';
+import { createContext, useContext, useState } from 'react';
+import data from './Components/Assets/data.json'
+import { Alert, Snackbar } from '@mui/material';
 
-
+const user = createContext();
 function App() {
-  var [logged, setlogged] = useState(false);
+  var [logged, setlogged] = useState({ id: 1, user: "Shanky" });
+  const [blogs, setBlogs] = useState(data);
+  const [write, setWrite] = useState({ open: false, data:null});
+  const [openSnack, setOpenSnack] = useState({ open: false, html: "", time: 800, severity: "success" })
 
   return (
     <>
-
-      <div id='container'>
-       
+      <user.Provider value={{ logged, setlogged, blogs, setBlogs, write, setWrite, openSnack, setOpenSnack }} >
+        <div id='container'>
           <Routers>
-            <Navbar logged={logged} setlogged={setlogged} />
+            <Navbar />
             <Routes>
               <Route exact path='/' element={<Home />} />
               <Route exact path='/login' element={<Login />} />
               <Route exact path='/register' element={<Register />} />
-              <Route exact path='/write' element={<Write />} />
               <Route exact path='/post/:postID' element={<Post />} />
               <Route exact path='/post/:*' element={<Error />} />
             </Routes>
           </Routers>
-  
-      </div>
 
+          <Write />
+        </div>
+
+
+        <Snackbar open={openSnack.open} autoHideDuration={openSnack.time} onClose={() => setOpenSnack({ ...openSnack, open: false })} anchorOrigin={{ vertical: 'top', horizontal: "center" }} >
+          <Alert onClose={() => setOpenSnack({ ...openSnack, open: false })} severity={openSnack.severity} sx={{ width: '100%' }} variant="filled">
+            {openSnack.html}
+          </Alert>
+        </Snackbar>
+      </user.Provider>
     </>
   );
 }
 
 export default App;
+
+export const BlogDetail = () => {
+  return useContext(user)
+}
