@@ -10,13 +10,12 @@ const Login = () => {
 
   const login = () => {
     const email = document.querySelector("#email").value;
-    const authorName = document.querySelector("#authorName").value;
     const pass = document.querySelector("#pass").value;
     var flag = true;
     userData.forEach((val) => {
-      if (email.toLowerCase() === val.email.toLowerCase() && authorName.toLowerCase() === val.authorName.toLowerCase() && pass.toLowerCase() === val.pass.toLowerCase()) {
-        setlogged({id: val.userId, user: authorName});
-        setOpenSnack({ open: true, html: `Welcome ${authorName} `, time: 1500, severity: "success" });
+      if (email.toLowerCase() === val.email.toLowerCase() && pass.toLowerCase() === val.pass.toLowerCase()) {
+        setlogged({ id: val.userId, user: val.authorName });
+        setOpenSnack({ open: true, html: `Welcome ${val.authorName} `, time: 1500, severity: "success" });
         flag = false;
         navigate('/')
       }
@@ -35,8 +34,6 @@ const Login = () => {
           <div>
             <h1>Email-Id</h1>
             <input type='email' placeholder='email' required id='email' autoFocus />
-            <h1>User Name </h1>
-            <input type='text' placeholder='username' id='authorName' required />
             <h1> Password </h1>
             <input type='password' placeholder='password' id='pass' required />
             <button onClick={login}> Login </button>
